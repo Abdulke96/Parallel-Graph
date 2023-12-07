@@ -1,0 +1,21 @@
+make -C ../src clean
+make[1]: Entering directory '/home/abdi/graph-and-pthread-home-work/src'
+rm -f serial.o os_graph.o ../utils/log/log.o parallel.o os_graph.o os_threadpool.o ../utils/log/log.o
+rm -f serial parallel
+rm -f *~
+make[1]: Leaving directory '/home/abdi/graph-and-pthread-home-work/src'
+rm -f *~
+make -i SRC_PATH=../src
+make[1]: Entering directory '/home/abdi/graph-and-pthread-home-work/tests'
+make -C ../src UTILS_PATH=/home/abdi/graph-and-pthread-home-work/utils
+make[2]: Entering directory '/home/abdi/graph-and-pthread-home-work/src'
+cc -Wall -Wextra -g -O0 -I/home/abdi/graph-and-pthread-home-work/utils  -c -o serial.o serial.c
+cc -Wall -Wextra -g -O0 -I/home/abdi/graph-and-pthread-home-work/utils  -c -o os_graph.o os_graph.c
+cc -I/home/abdi/graph-and-pthread-home-work/utils -Wall -Wextra -g -O0 -c -o /home/abdi/graph-and-pthread-home-work/utils/log/log.o /home/abdi/graph-and-pthread-home-work/utils/log/log.c
+cc -o serial serial.o os_graph.o /home/abdi/graph-and-pthread-home-work/utils/log/log.o
+cc -Wall -Wextra -g -O0 -I/home/abdi/graph-and-pthread-home-work/utils  -c -o parallel.o parallel.c
+cc -Wall -Wextra -g -O0 -I/home/abdi/graph-and-pthread-home-work/utils  -c -o os_threadpool.o os_threadpool.c
+cc -o parallel parallel.o os_graph.o os_threadpool.o /home/abdi/graph-and-pthread-home-work/utils/log/log.o -lpthread
+make[2]: Leaving directory '/home/abdi/graph-and-pthread-home-work/src'
+make[1]: Leaving directory '/home/abdi/graph-and-pthread-home-work/tests'
+SRC_PATH=../src python checker.py

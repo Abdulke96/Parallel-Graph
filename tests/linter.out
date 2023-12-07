@@ -1,0 +1,17 @@
+cd ../src/.. && checkpatch.pl -f src/*.c
+/bin/sh: 1: checkpatch.pl: not found
+make: [Makefile:16: lint] Error 127 (ignored)
+cd ../src/.. && cpplint --recursive src/
+Done processing src/os_graph.c
+Done processing src/os_graph.h
+Done processing src/os_list.h
+Done processing src/os_threadpool.c
+Done processing src/os_threadpool.h
+Done processing src/parallel.c
+Done processing src/serial.c
+cd ../src/.. && shellcheck tests/*.sh
+/bin/sh: 1: shellcheck: not found
+make: [Makefile:18: lint] Error 127 (ignored)
+cd ../src/.. && pylint tests/*.py
+/bin/sh: 1: pylint: not found
+make: [Makefile:19: lint] Error 127 (ignored)
